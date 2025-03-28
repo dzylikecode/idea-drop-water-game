@@ -70,11 +70,9 @@ $$
 def search(s):
     branches = list_all_operator(s)
     for (s_, op) in branches:
-        if s_ in graph:
-            continue
+        if s_ in graph: continue
         graph.set(s_, op)
-        if s_ == target:
-            continue
+        if s_ == target: continue
         search(s_)
 ```
 
