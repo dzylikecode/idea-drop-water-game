@@ -55,6 +55,29 @@ $$
 
 但是，需要将水倒掉，增加了困难，我就放弃了，直接暴力求解
 
+## 基本思路
+
+定义一个操作
+
+$$
+s' = f(s)
+$$
+
+如果$s'$在已知的图结构中，那么结束，如果不在，那么继续迭代直到找到停机状态
+
+
+```python
+def search(s):
+    branches = list_all_operator(s)
+    for (s_, op) in branches:
+        if s_ in graph:
+            continue
+        graph.set(s_, op)
+        if s_ == target:
+            continue
+        search(s_)
+```
+
 ## png
 
 ![](graph.png)
